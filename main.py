@@ -1,10 +1,11 @@
 import os
 
-os.system("clear")
-
 user = []
-pizza_topings = []
+pizza_topings = ["Plain base"]
 
 
 def menu():
+    os.system("clear")
     print("Welcome to Queenstowns Pizzaria,\n Please enter your name and select what toppings you want on your pizza! ")
+
+menu()
