@@ -3,7 +3,6 @@ import os
 os.system("clear")
 
 user = []
-pizza_base = []
 pizza_topings = []
 
 
