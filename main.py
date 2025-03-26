@@ -10,6 +10,10 @@ sides = [["Coca Cola", 2],["Sprite", 2],["Fries", 3],["Onion Rings", 3.5],["Garl
 
 def menu():
     os.system("clear")
-    print("Welcome to Queenstowns Pizzaria,\n Please enter your name and select what toppings you want on your pizza! ")
+    print("Welcome to Queenstowns Pizzaria!")
+    print("1. Make a pizza")
+    print("2. Purchase sides")
+    print("3. Cart")
+    print("4. Check out")
 
 menu()
