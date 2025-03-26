@@ -14,6 +14,18 @@ def menu():
     print("1. Make a pizza")
     print("2. Purchase sides")
     print("3. Cart")
-    print("4. Check out")
+    print("4. Leave")
+
+def make_pizza():
+    print("Placeholder")
+
+def purchase_sides():
+    print("Placeholder")
+
+def cart():
+    print("Placeholder")
+
+def leave():
+    print("Placeholder")
 
 menu()
