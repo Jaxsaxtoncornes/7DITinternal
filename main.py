@@ -18,7 +18,7 @@ def menu():
     print("4. Leave\n")
 
 def make_pizza():
-    print("Placeholder")
+    print("What type of pizza base would you like")
     input("")
 
 def purchase_sides():
