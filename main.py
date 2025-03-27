@@ -1,4 +1,5 @@
 import os
+import time
 
 user = []
 pizza_base = [["Thin Base", 5],["Plain Base", 6], ["Gluten Free Base", 6.5], ["Italian Herb Base", 7]]
@@ -14,18 +15,39 @@ def menu():
     print("1. Make a pizza")
     print("2. Purchase sides")
     print("3. Cart")
-    print("4. Leave")
+    print("4. Leave\n")
 
 def make_pizza():
     print("Placeholder")
+    input("")
 
 def purchase_sides():
     print("Placeholder")
+    input("")
 
 def cart():
     print("Placeholder")
+    input("")
 
 def leave():
     print("Placeholder")
+    input("")
 
-menu()
+while True:
+    try:
+        menu()
+        user_input = int(input("Enter the number for what you would like to do. \n > "))
+        if user_input == 1:
+            make_pizza()
+        elif user_input == 2:
+            purchase_sides()
+        elif user_input == 3:
+            cart()
+        elif user_input == 4:
+            leave()
+        else:
+            print("enter a number between 1 to 4")
+            time.sleep(1)
+    except ValueError:
+        print("Please enter a valid number.") 
+        time.sleep(1)
