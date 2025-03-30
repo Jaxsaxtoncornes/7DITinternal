@@ -1,13 +1,12 @@
 import os
 import time
 
-user = []
 pizza_base = [["Thin Base", 5],["Plain Base", 6], ["Gluten Free Base", 6.5], ["Italian Herb Base", 7]]
 pizza_crust = [["Plain Crust", 0],["Tomato Crust", 1],["Cheesey Crust", 1],["Vegan Cheesey Crust", 1.5]]
 pizza_cheese = [["Mozzarella", 0.5],["Chedder", 0.5],["4 Cheese's", 1],["Vegan Cheese", 1]]
 pizza_toppings = [["Basil", 0.5],["Garlic", 0.75],["Onions", 1],["Tomatoes", 1.25],["Mushrooms", 1.5],["Green Peppers", 1.75],["Ham", 2],["Pepperoni", 2.5]]
 sides = [["Coca Cola", 2],["Sprite", 2],["Fanta", 2],["Fries", 3],["Onion Rings", 3.5],["Garlic Bread", 4]]
-
+user_order = []
 
 def menu():
     os.system("clear")
@@ -18,8 +17,20 @@ def menu():
     print("4. Leave\n")
 
 def make_pizza():
+    os.system("clear")
     print("What type of pizza base would you like")
-    input("")
+    for base in pizza_base:
+        print(f"{base[0]} ${base[1]}")
+    #     user_order.append = input("")
+    # for crust in pizza_crust:
+    #     print(f"{crust[0]} ${crust[1]}")
+    #     user_order.append = input("")
+    # for cheese in pizza_cheese:
+    #     print(f"{cheese[0]} ${cheese[1]}")
+    #     user_order.append = input("")
+    # for toppings in pizza_toppings:
+    #     print(f"{toppings[0]} ${toppings[1]}")
+    #     user_order.append = input("")
 
 def purchase_sides():
     print("Placeholder")
@@ -51,3 +62,5 @@ while True:
     except ValueError:
         print("Please enter a valid number.") 
         time.sleep(1)
+
+make_pizza()
