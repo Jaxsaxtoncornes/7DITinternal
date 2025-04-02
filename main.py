@@ -1,5 +1,5 @@
-import os
-import time
+import os     #imported os for the os.system("clear")
+import time   #imported time to allow user's to read dialogue before it disapears
 
 pizza_base = [["Thin Base", 5],["Plain Base", 6], ["Gluten Free Base", 6.5], ["Italian Herb Base", 7]]
 pizza_crust = [["Plain Crust", 0],["Tomato Crust", 1],["Cheesey Crust", 1],["Vegan Cheesey Crust", 1.5]]
@@ -25,7 +25,7 @@ def make_pizza():
         print(str(counter) + ". " + str(base[0]) + " $" + str(base[1]))
     pizza_base_input = int(input("Enter the number next to the pizza base: "))
     if pizza_base_input == 1:
-        print(".")
+        user_order.append()
 
 def purchase_sides():
     print("Placeholder")
