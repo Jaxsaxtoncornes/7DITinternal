@@ -53,5 +53,3 @@ while True:
     except ValueError:
         print("Please enter a valid number.") 
         time.sleep(1)
-
-make_pizza()
