@@ -19,9 +19,13 @@ def menu():
 def make_pizza():
     os.system("clear")
     print("What type of pizza base would you like")
+    counter = 0
     for base in pizza_base:
-        print(f"{base[0]} ${base[1]}")
-    input("Hi")
+        counter = counter + 1
+        print(str(counter) + ". " + str(base[0]) + " $" + str(base[1]))
+    pizza_base_input = int(input("Enter the number next to the pizza base: "))
+    if pizza_base_input == 1:
+        print(".")
 
 def purchase_sides():
     print("Placeholder")
