@@ -21,16 +21,7 @@ def make_pizza():
     print("What type of pizza base would you like")
     for base in pizza_base:
         print(f"{base[0]} ${base[1]}")
-    #     user_order.append = input("")
-    # for crust in pizza_crust:
-    #     print(f"{crust[0]} ${crust[1]}")
-    #     user_order.append = input("")
-    # for cheese in pizza_cheese:
-    #     print(f"{cheese[0]} ${cheese[1]}")
-    #     user_order.append = input("")
-    # for toppings in pizza_toppings:
-    #     print(f"{toppings[0]} ${toppings[1]}")
-    #     user_order.append = input("")
+    input("Hi")
 
 def purchase_sides():
     print("Placeholder")
