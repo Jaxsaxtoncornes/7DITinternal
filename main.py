@@ -41,7 +41,7 @@ def purchase_sides():
 
 
 def side_confirm():
-    side_confirm = input("Would you like to buy a side? \n(Enter yes or no)\n: ").lower
+    side_confirm = input("Enter yes or no if you want to buy a side?\n: ").lower
     if side_confirm == "Yes":
         os.system("clear")
         side_choice()
@@ -69,7 +69,7 @@ def side_choice():
 def cart():
     os.system("clear")
     print(user_order)
-    user_input = input("Would you like to check out? \n(Enter yes or no)\n: ").lower()
+    user_input = input("Enter yes or no if you would like to check out?\n: ").lower()
     if user_input == "Yes":
         input("What size pizza would you like?")
     elif user_input == "No":
@@ -84,7 +84,7 @@ def cart():
 
 def leave():
     os.system("clear")
-    leave_call = input("Are you sure you want to end your order? \n(Enter yes or no)\n: ").lower()
+    leave_call = input("Enter yes or no if you want to end your order?\n: ").lower()
     if leave_call == "Yes":
         print("have a good day!")
     elif leave_call == "No":
