@@ -40,21 +40,6 @@ def purchase_sides():
     side_confirm()           
 
 
-def side_confirm():
-    side_confirm = input("Enter yes or no if you want to buy a side: ").lower
-    if side_confirm == "Yes":
-        os.system("clear")
-        side_choice()
-    elif side_confirm == "No":
-        ("Alright, back to the menu!")
-        time.sleep(1)
-        menu()
-    else:
-        print("Enter a valid input")
-        time.sleep
-        side_confirm()
-
-
 def side_choice():
     os.system("clear")
     counter_5 = 0
@@ -66,13 +51,27 @@ def side_choice():
         pizza_sides.append()
 
 
+def side_confirm():
+    side_confirm = input("Enter yes or no if you want to buy a side: ").lower()
+    if side_confirm == "yes":
+        side_choice()
+    elif side_confirm == "no":
+        print("Alright, back to the menu!")
+        time.sleep(1)
+        menu()
+    else:
+        print("Enter a valid input")
+        time.sleep
+        side_confirm()
+
+
 def cart():
     os.system("clear")
     print(user_order)
     user_input = input("Enter yes or no if you would like to check out: ").lower()
-    if user_input == "Yes":
+    if user_input == "yes":
         input("What size pizza would you like?")
-    elif user_input == "No":
+    elif user_input == "no":
         print("Alright, back to the menu!")
         time.sleep(1)
         menu()
@@ -85,9 +84,9 @@ def cart():
 def leave():
     os.system("clear")
     leave_call = input("Enter yes or no if you want to end your order: ").lower()
-    if leave_call == "Yes":
+    if leave_call == "yes":
         print("have a good day!")
-    elif leave_call == "No":
+    elif leave_call == "no":
         print("Alright, back to the menu!")
     else:
         print("Please enter a valid input")
