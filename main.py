@@ -33,11 +33,29 @@ def make_pizza():
     
 def purchase_sides():
     os.system("clear")
-    print("What side would you like to purchase")
     counter_5 = 0
     for sides in pizza_sides:
         counter_5 = counter_5 + 1
         print(str(counter_5) + ". " + str(sides[0]) + " $" + str(sides[1]))
+    side_confirm()           
+
+
+def side_confirm():
+    side_confirm = input("Would you like to buy a side?").lower
+    if side_confirm == "Yes":
+        os.system("clear")
+        side_choice()
+    elif side_confirm == "No":
+        ("Alright, back to the menu!")
+        time.sleep(1)
+        menu()
+    else:
+        print("Enter a valid input")
+        time.sleep
+        side_confirm()
+
+
+def side_choice():
     sides_choice = int(input("What side would you like to purchase?"))
     if sides_choice == 1:
         sides.append()
