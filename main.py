@@ -26,7 +26,7 @@ def make_pizza():
     for base in pizza_base:
         counter_1 = counter_1 + 1
         print(str(counter_1) + ". " + str(base[0]) + " $" + str(base[1]))
-    pizza_base_input = int(input("Enter the number next to the pizza base: "))
+    pizza_base_input = int(input("Enter the number next to the pizza base for your choice: "))
     if pizza_base_input == 1:
         user_order.append()
 
@@ -41,7 +41,7 @@ def purchase_sides():
 
 
 def side_confirm():
-    side_confirm = input("Would you like to buy a side?").lower
+    side_confirm = input("Would you like to buy a side? \n(Enter yes or no)\n: ").lower
     if side_confirm == "Yes":
         os.system("clear")
         side_choice()
@@ -56,15 +56,20 @@ def side_confirm():
 
 
 def side_choice():
-    sides_choice = int(input("What side would you like to purchase?"))
+    os.system("clear")
+    counter_5 = 0
+    for sides in pizza_sides:
+        counter_5 = counter_5 + 1
+        print(str(counter_5) + ". " + str(sides[0]) + " $" + str(sides[1]))
+    sides_choice = int(input("Enter the number next to the side you want to purchase"))
     if sides_choice == 1:
-        sides.append()
+        pizza_sides.append()
 
 
 def cart():
     os.system("clear")
     print(user_order)
-    user_input = input("Would you like to check out?").lower()
+    user_input = input("Would you like to check out? \n(Enter yes or no)\n: ").lower()
     if user_input == "Yes":
         input("What size pizza would you like?")
     elif user_input == "No":
@@ -79,7 +84,7 @@ def cart():
 
 def leave():
     os.system("clear")
-    leave_call = input("Are you sure you want to end your order?").lower()
+    leave_call = input("Are you sure you want to end your order? \n(Enter yes or no)\n: ").lower()
     if leave_call == "Yes":
         print("have a good day!")
     elif leave_call == "No":
