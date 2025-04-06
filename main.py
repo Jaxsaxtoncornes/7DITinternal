@@ -124,7 +124,7 @@ def pizza_cheese_choice():
     else:
         print("Please enter a valid input")
         time.sleep(1)
-        pizza_base_choice()
+        pizza_cheese_choice()
 
 def pizza_toppings_choice():
     os.system("clear")
@@ -230,17 +230,17 @@ def edit_cart():
     if edit_cart_choice.isdigit():
         edit_cart_choice = int(edit_cart_choice)
         if edit_cart_choice == 1:
-            user_order[0] = []
+            user_order.pop(0)
             pizza_base_choice()
             os.system("clear")
             edit_cart()
         elif edit_cart_choice == 2:
-            user_order[1] = []
+            user_order.pop(1)
             pizza_crust_choice()
             os.system("clear")
             edit_cart()
         elif edit_cart_choice == 3:
-            user_order[2] = []
+            user_order.pop(2)
             pizza_cheese_choice()
             os.system("clear")
             edit_cart()
@@ -342,6 +342,8 @@ def leave():
         print("Have a good day!")
     elif leave_call == "no":
         print("Alright, back to the menu!")
+        time.sleep(1)
+        menu()
     else:
         print("Please enter a valid input")
         time.sleep(1)
