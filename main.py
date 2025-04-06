@@ -80,7 +80,7 @@ def make_pizza():
             time.sleep(1)
             pizza_crust_choice()
     pizza_crust_choice()
-
+print("darn")
 
 def side_choice():
     os.system("clear")
