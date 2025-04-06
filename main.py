@@ -221,6 +221,83 @@ def side_confirm():
         side_confirm()
 
 
+def edit_cart():        
+    print("What part of your pizza would you like to edit?")
+    print("1. Pizza base")
+    print("2. Pizza crust")
+    print("3. Pizza cheese")
+    print("4. Pizza toppings")
+    print("5. Pizza sides")
+    print("6. Back to cart")
+    edit_cart_choice = input("Enter the number next to what you would like to do: ")
+    if edit_cart_choice.isdigit():
+        edit_cart_choice = int(edit_cart_choice)
+        if edit_cart_choice == 1:
+            user_order[0] = []
+            pizza_base_choice()
+            edit_cart()
+        elif edit_cart_choice == 2:
+            user_order[1] = []
+            pizza_crust_choice()
+            edit_cart()
+        elif edit_cart_choice == 3:
+            user_order[2] = []
+            pizza_cheese_choice()
+            edit_cart()
+        elif edit_cart_choice == 4:
+            user_order[3:] = []
+            pizza_toppings_choice()
+            edit_cart()
+        elif edit_cart_choice == 5:
+            user_sides[0:] = []
+            pizza_side_choice()
+            edit_cart()
+        elif edit_cart_choice == 6:
+            cart()
+        else:
+            print("Please enter a valid number")
+            time.sleep(1)
+            edit_cart()
+    else:
+        print("Please enter a valid input")
+        time.sleep(1)
+        edit_cart()
+def pizza_checkout():
+    os.system("clear")
+    pizza_total_cost = 0
+    for item in user_order:
+        pizza_total_cost += item[1]
+    sides_total_cost = 0
+    for sides in user_sides:
+        sides_total_cost += sides[1]
+    os.system("clear")
+    print("Alright, what size pizza would you like to have")
+    print("1. Small, 1x the final price of your pizza")
+    print("2. Medium, 1.25x the final price of your pizza")
+    print("3. Large, 1.5x the final price of your pizza")
+    pizza_size = input("Enter the number next to what you want to do: ")
+    if pizza_size.isdigit():
+        pizza_size = int(pizza_size)
+        if pizza_size == 1:
+            final_pizza_cost = pizza_total_cost * 1
+        elif pizza_size == 2:
+            final_pizza_cost = pizza_total_cost * 1.25
+        elif pizza_size == 3:
+            final_pizza_cost = pizza_total_cost * 1.5
+        else:
+            print("Please enter a valid number")
+            time.sleep(1)
+            pizza_checkout()
+    else:
+        print("Please enter a valid input")
+        time.sleep(1)
+        pizza_checkout()
+    final_cost = final_pizza_cost + sides_total_cost
+    print("Your final pizza cost is $" + str(final_pizza_cost))
+    print("Your final pizza cost along with sides is $" + str(final_cost))
+    input("Enjoy your pizza, enter to end the program!")
+
+
 def cart():
     os.system("clear")
     print("1. Checkout \n2. View cart \n3. Edit cart \n4. Go back to the menu \n")
@@ -228,10 +305,7 @@ def cart():
     if user_cart_choice.isdigit():
         user_cart_choice = int(user_cart_choice)
         if user_cart_choice == 1:
-            print("Alright, what size pizza would you like to have")
-            print("1. Small, 1x the final price of your pizza")
-            print("2. Medium, 1.25x the final price of your pizza")
-            print("3. Large, 1.5x the final price of your pizza")
+            pizza_checkout()
         elif user_cart_choice == 2:
             print("Pizza: ")
             for order in user_order:
@@ -255,48 +329,6 @@ def cart():
         print("Please enter a valid input")
         time.sleep(1)
         cart()
-    def edit_cart():
-        os.system("clear")
-        print("What part of your pizza would you like to edit?")
-        print("1. Pizza base")
-        print("2. Pizza crust")
-        print("3. Pizza cheese")
-        print("4. Pizza toppings")
-        print("5. Pizza sides")
-        print("6. Back to cart")
-        edit_cart_choice = input("Enter the number next to what you would like to do: ")
-        if edit_cart_choice.isdigit():
-            edit_cart_choice = int(edit_cart_choice)
-            if edit_cart_choice == 1:
-                user_order[0] = []
-                pizza_base_choice()
-                edit_cart()
-            elif edit_cart_choice == 2:
-                user_order[1] = []
-                pizza_crust_choice()
-                edit_cart()
-            elif edit_cart_choice == 3:
-                user_order[2] = []
-                pizza_cheese_choice()
-                edit_cart()
-            elif edit_cart_choice == 4:
-                user_order[3:] = []
-                pizza_toppings_choice()
-                edit_cart()
-            elif edit_cart_choice == 5:
-                user_sides[0:] = []
-                pizza_side_choice()
-                edit_cart()
-            elif edit_cart_choice == 6:
-                cart()
-            else:
-                print("Please enter a valid number")
-                time.sleep(1)
-                edit_cart()
-        else:
-            print("Please enter a valid input")
-            time.sleep(1)
-            edit_cart()
 
 
 def leave():
