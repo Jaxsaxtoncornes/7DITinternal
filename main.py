@@ -170,7 +170,7 @@ def pizza_toppings_choice():
         pizza_toppings_choice()
 
 
-def side_choice():
+def pizza_side_choice():
     os.system("clear")
     counter_5 = 0
     for sides in pizza_sides:
@@ -194,12 +194,12 @@ def side_choice():
         else:
             print("Enter a number between 1-6")
             time.sleep(1)
-            side_choice()
+            pizza_side_choice()
         menu()
     else:
         print("Enter a valid input")
         time.sleep(1)
-        side_choice()
+        pizza_side_choice()
 
 
 def side_confirm():
@@ -210,7 +210,7 @@ def side_confirm():
         print(str(counter_5) + ". " + str(sides[0]) + " $" + str(sides[1]))
     user_side_confirm = input("Looking at the availble sides, enter yes or no if you want to buy a side: ").lower()
     if user_side_confirm == "yes":
-        side_choice()
+        pizza_side_choice()
     elif user_side_confirm == "no":
         print("Alright, back to the menu!")
         time.sleep(1)
@@ -267,8 +267,33 @@ def cart():
             if edit_cart_choice == 1:
                 user_order[0] = []
                 pizza_base_choice()
+                edit_cart()
             elif edit_cart_choice == 2:
-                user_order
+                user_order[1] = []
+                pizza_crust_choice()
+                edit_cart()
+            elif edit_cart_choice == 3:
+                user_order[2] = []
+                pizza_cheese_choice()
+                edit_cart()
+            elif edit_cart_choice == 4:
+                user_order[3:] = []
+                pizza_toppings_choice()
+                edit_cart()
+            elif edit_cart_choice == 5:
+                user_sides[0:] = []
+                pizza_side_choice()
+                edit_cart()
+            elif edit_cart_choice == 6:
+                cart()
+            else:
+                print("Please enter a valid number")
+                time.sleep(1)
+                edit_cart()
+        else:
+            print("Please enter a valid input")
+            time.sleep(1)
+            edit_cart()
 
 
 def leave():
