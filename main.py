@@ -1,5 +1,6 @@
 import os     #imported os for the os.system("clear")
 import time   #imported time to allow user's to read dialogue before it disappears
+import sys
 
 
 pizza_base = [["Thin Base", 5],["Plain Base", 6], ["Gluten Free Base", 6.5], ["Italian Herb Base", 7]]
@@ -304,7 +305,8 @@ def pizza_checkout():
     os.system("clear")
     print("Your final pizza cost is $" + str(final_pizza_cost))
     print("Your final pizza cost along with sides is $" + str(final_cost))
-    input("Enjoy your pizza, enter to end the program!")
+    input("Enter to complete your order")
+    sys.exit()
 
 
 def cart():
@@ -316,6 +318,7 @@ def cart():
         if user_cart_choice == 1:
             pizza_checkout()
         elif user_cart_choice == 2:
+            os.system("clear")
             print("Pizza: ")
             for order in user_order:
                 print(str(order[0]) + " $" + str(order[1]))
