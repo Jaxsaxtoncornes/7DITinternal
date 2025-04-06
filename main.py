@@ -8,7 +8,7 @@ pizza_cheese = [["Mozzarella", 0.5],["Chedder", 0.5],["4 Cheese's", 1],["Vegan C
 pizza_toppings = [["Basil", 0.5],["Garlic", 0.75],["Onions", 1],["Tomatoes", 1.25],["Mushrooms", 1.5],["Green Peppers", 1.75],["Ham", 2],["Pepperoni", 2.5]]
 pizza_sides = [["Coca Cola", 2],["Sprite", 2],["Fanta", 2],["Fries", 3],["Onion Rings", 3.5],["Garlic Bread", 4]]
 user_order = []
-user_order_sides = []
+user_sides = []
 
 
 def menu():
@@ -18,6 +18,25 @@ def menu():
     print("2. Purchase sides")
     print("3. Cart")
     print("4. Leave\n")
+    user_input = input("Enter the number for what you would like to do. \n > ")
+    if user_input.isdigit():
+        user_input = int(user_input)
+        if user_input == 1:
+            make_pizza()
+        elif user_input == 2:
+            side_confirm()
+        elif user_input == 3:
+            cart()
+        elif user_input == 4:
+            leave()
+        else:
+            print("Enter a valid number input")
+            time.sleep(1)
+            menu()
+    else:
+        print("enter a valid input")
+        time.sleep(1)
+        menu()
 
 
 def make_pizza():
@@ -62,17 +81,6 @@ def make_pizza():
             pizza_crust_choice()
     pizza_crust_choice()
 
-    
-
-    
-def purchase_sides():
-    os.system("clear")
-    counter_5 = 0
-    for sides in pizza_sides:
-        counter_5 = counter_5 + 1
-        print(str(counter_5) + ". " + str(sides[0]) + " $" + str(sides[1]))
-    side_confirm()           
-
 
 def side_choice():
     os.system("clear")
@@ -80,20 +88,27 @@ def side_choice():
     for sides in pizza_sides:
         counter_5 = counter_5 + 1
         print(str(counter_5) + ". " + str(sides[0]) + " $" + str(sides[1]))
+    sides_choice = input("What side would you like to purchase: ")
     if sides_choice.isdigit():
         sides_choice = int(side_choice)
         if sides_choice == 1:
-            user_order_sides.append(side_choice[0])
+            user_sides.append(side_choice[0])
+            menu()
         elif sides_choice == 2:
-            user_order_sides.append(side_choice[1])
+            user_sides.append(side_choice[1])
+            menu()
         elif sides_choice == 3:
-            user_order_sides.append(side_choice[2])
+            user_sides.append(side_choice[2])
+            menu()
         elif sides_choice == 4:
-            user_order_sides.append(side_choice[3])
+            user_sides.append(side_choice[3])
+            menu()
         elif sides_choice == 5:
-            user_order_sides.append(side_choice[4])
+            user_sides.append(side_choice[4])
+            menu()
         elif sides_choice == 6:
-            user_order_sides.append(side_choice[5])
+            user_sides.append(side_choice[5])
+            menu()
         else:
             print("Enter a number between 1-6")
             time.sleep(1)
@@ -104,7 +119,12 @@ def side_choice():
         side_choice()
 
 def side_confirm():
-    user_side_confirm = input("Enter yes or no if you want to buy a side: ").lower()
+    os.system("clear")
+    counter_5 = 0
+    for sides in pizza_sides:
+        counter_5 = counter_5 + 1
+        print(str(counter_5) + ". " + str(sides[0]) + " $" + str(sides[1]))
+    user_side_confirm = input("Looking at the availble side, enter yes or no if you want to buy a side: ").lower()
     if user_side_confirm == "yes":
         side_choice()
     elif user_side_confirm == "no":
@@ -114,7 +134,6 @@ def side_confirm():
     else:
         print("Enter a valid input")
         time.sleep(1)
-        os.system("clear")
         side_confirm()
 
 
@@ -147,22 +166,4 @@ def leave():
         leave()
     
 
-while True:
-    menu()
-    user_input = input("Enter the number for what you would like to do. \n > ")
-    if user_input.isdigit():
-        user_input = int(user_input)
-        if user_input == 1:
-            make_pizza()
-        elif user_input == 2:
-            purchase_sides()
-        elif user_input == 3:
-            cart()
-        elif user_input == 4:
-            leave()
-        else:
-            print("enter a number between 1 to 4")
-            time.sleep(1)
-    else:
-        print("Enter a valid input")
-        time.sleep(1)
+menu()
