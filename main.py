@@ -218,7 +218,11 @@ def side_confirm():
         side_confirm()
 
 
-def edit_cart():        
+def edit_cart():
+    if not user_order:
+        print("Please order a pizza before editing cart")
+        time.sleep(1.5)        
+        cart()
     print("What part of your pizza would you like to edit?")
     print("1. Pizza base")
     print("2. Pizza crust")
@@ -297,6 +301,7 @@ def pizza_checkout():
         time.sleep(1)
         pizza_checkout()
     final_cost = final_pizza_cost + sides_total_cost
+    os.system("clear")
     print("Your final pizza cost is $" + str(final_pizza_cost))
     print("Your final pizza cost along with sides is $" + str(final_cost))
     input("Enjoy your pizza, enter to end the program!")
@@ -322,7 +327,7 @@ def cart():
         elif user_cart_choice == 3:
             edit_cart()
         elif user_cart_choice == 4:
-            ("Alright, back to the menu")
+            print("Alright, back to the menu")
             time.sleep(1)
             menu()
         else:
