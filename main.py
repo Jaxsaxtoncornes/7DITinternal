@@ -47,19 +47,26 @@ def make_pizza():
         for base in pizza_base:
             counter_1 = counter_1 + 1
             print(str(counter_1) + ". " + str(base[0]) + " $" + str(base[1]))
-        pizza_base_input = int(input("Enter the number next to the pizza base for your choice: "))
-        if pizza_base_input == 1:
-            user_order.append(pizza_base[0])
-        elif pizza_base_input == 2:
-            user_order.append(pizza_base[1])
-        elif pizza_base_input == 3:
-            user_order.append(pizza_base[2])
-        elif pizza_base_input == 4:
-            user_order.append(pizza_base[3])
+        pizza_base_input = input("Enter the number next to the pizza base for your choice: ")
+        if pizza_base_input.isdigit():
+            pizza_base_input = int(pizza_base_input)
+            if pizza_base_input == 1:
+                user_order.append(pizza_base[0])
+            elif pizza_base_input == 2:
+                user_order.append(pizza_base[1])
+            elif pizza_base_input == 3:
+                user_order.append(pizza_base[2])
+            elif pizza_base_input == 4:
+                user_order.append(pizza_base[3])
+            else:
+                print("Please enter a valid number")
+                time.sleep(1)
+                pizza_base_choice()
         else:
-            print("Enter a valid input")
+            print("Please enter a valid input")
             time.sleep(1)
             pizza_base_choice()
+    
     def pizza_crust_choice():
         os.system("clear")
         print("What type of pizza crust would you like")
@@ -67,19 +74,26 @@ def make_pizza():
         for crust in pizza_crust:
             counter_2 = counter_2 + 1
             print(str(counter_2) + ". " + str(crust[0]) + " $" + str(crust[1]))
-        pizza_crust_input = int(input("Enter the number next to the pizza crust for your choice: "))
-        if pizza_crust_input == 1:
-            user_order.append(pizza_crust[0])
-        elif pizza_crust_input == 2:
-            user_order.append(pizza_crust[1])
-        elif pizza_crust_input == 3:
-            user_order.append(pizza_crust[2])
-        elif pizza_crust_input == 4:
-            user_order.append(pizza_crust[3])
+        pizza_crust_input = input("Enter the number next to the pizza crust for your choice: ")
+        if pizza_crust_input.isdigit():
+            pizza_crust_input = int(pizza_crust_input)
+            if pizza_crust_input == 1:
+                user_order.append(pizza_crust[0])
+            elif pizza_crust_input == 2:
+                user_order.append(pizza_crust[1])
+            elif pizza_crust_input == 3:
+                user_order.append(pizza_crust[2])
+            elif pizza_crust_input == 4:
+                user_order.append(pizza_crust[3])
+            else:
+                print("Please enter a valid number")
+                time.sleep(1)
+                pizza_crust_choice()
         else:
-            print("Enter a valid input")
+            print("Please enter a valid input")
             time.sleep(1)
             pizza_crust_choice()
+    
     def pizza_cheese_choice():
         os.system("clear")
         print("What type of pizza cheese would you like")
@@ -87,22 +101,29 @@ def make_pizza():
         for cheese in pizza_cheese:
             counter_3 = counter_3 + 1
             print(str(counter_3) + ". " + str(cheese[0]) + " $" + str(cheese[1]))
-        pizza_cheese_input = int(input("Enter the number next to the pizza cheese for your choice: "))
-        if pizza_cheese_input == 1:
-            user_order.append(pizza_cheese[0])
-        elif pizza_cheese_input == 2:
-            user_order.append(pizza_cheese[1])
-        elif pizza_cheese_input == 3:
-            user_order.append(pizza_cheese[2])
-        elif pizza_cheese_input == 4:
-            user_order.append(pizza_cheese[3])
+        pizza_cheese_input = input("Enter the number next to the pizza cheese for your choice: ")
+        if pizza_cheese_input.isdigit():
+            pizza_cheese_input = int(pizza_cheese_input)
+            if pizza_cheese_input == 1:
+                user_order.append(pizza_cheese[0])
+            elif pizza_cheese_input == 2:
+                user_order.append(pizza_cheese[1])
+            elif pizza_cheese_input == 3:
+                user_order.append(pizza_cheese[2])
+            elif pizza_cheese_input == 4:
+                user_order.append(pizza_cheese[3])
+            else:
+                print("Please enter a valid number")
+                time.sleep(1)
+                pizza_cheese_choice()
         else:
-            print("Enter a valid input")
+            print("Please enter a valid input")
             time.sleep(1)
-            pizza_cheese_choice()
+            pizza_base_choice()
+    
     def pizza_toppings_choice():
         os.system("clear")
-        user_toppings_confirm = input("Say yes or no if you would like toppings on your pizza?\n").lower()
+        user_toppings_confirm = input("Say yes or no if you would like toppings on your pizza.\n").lower()
         if user_toppings_confirm == "yes":
             while True:
                 os.system("clear")
@@ -142,6 +163,7 @@ def make_pizza():
             print("Please enter a valid input")
             time.sleep(1)
             pizza_toppings_choice()
+    
     pizza_base_choice()
     pizza_crust_choice()
     pizza_cheese_choice()
@@ -179,13 +201,14 @@ def side_choice():
         time.sleep(1)
         side_choice()
 
+
 def side_confirm():
     os.system("clear")
     counter_5 = 0
     for sides in pizza_sides:
         counter_5 = counter_5 + 1
         print(str(counter_5) + ". " + str(sides[0]) + " $" + str(sides[1]))
-    user_side_confirm = input("Looking at the availble side, enter yes or no if you want to buy a side: ").lower()
+    user_side_confirm = input("Looking at the availble sides, enter yes or no if you want to buy a side: ").lower()
     if user_side_confirm == "yes":
         side_choice()
     elif user_side_confirm == "no":
