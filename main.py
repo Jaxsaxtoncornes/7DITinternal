@@ -223,19 +223,8 @@ def side_confirm():
 
 def cart():
     os.system("clear")
-    print(user_order)
-    print(user_sides)
-    user_input = input("Enter yes or no if you would like to check out: ").lower()
-    if user_input == "yes":
-        input("What size pizza would you like?")
-    elif user_input == "no":
-        print("Alright, back to the menu!")
-        time.sleep(1)
-        menu()
-    else:
-        print("Please enter a valid input")
-        time.sleep(1)
-        cart()
+    print("1. Checkout\n2. Edit Cart\n3. Go back to the menu\n")
+    int(input("Enter the number next to what you would like to do:"))
 
 
 def leave():
