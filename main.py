@@ -223,8 +223,26 @@ def side_confirm():
 
 def cart():
     os.system("clear")
-    print("1. Checkout\n2. Edit Cart\n3. Go back to the menu\n")
-    int(input("Enter the number next to what you would like to do:"))
+    print("1. Checkout\n2. Edit cart\n3. Go back to the menu\n")
+    user_cart_choice = input("Enter the number next to what you would like to do: ")
+    if user_cart_choice.isdigit():
+        user_cart_choice = int(user_cart_choice)
+        if user_cart_choice == 1:
+            print("")
+        elif user_cart_choice == 2:
+            print("")
+        elif user_cart_choice == 3:
+            ("Alright, back to the menu")
+            time.sleep(1)
+            menu()
+        else:
+            print("Please enter a valid number")
+            time.sleep(1)
+            cart()
+    else:
+        print("Please enter a valid input")
+        time.sleep(1)
+        cart()
 
 
 def leave():
