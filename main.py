@@ -228,7 +228,10 @@ def cart():
     if user_cart_choice.isdigit():
         user_cart_choice = int(user_cart_choice)
         if user_cart_choice == 1:
-            print("")
+            print("Alright, what size pizza would you like to have")
+            print("1. Small, 1x the final price of your pizza")
+            print("2. Medium, 1.25x the final price of your pizza")
+            print("3. Large, 1.5x the final price of your pizza")
         elif user_cart_choice == 2:
             print("Pizza: ")
             for order in user_order:
