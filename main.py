@@ -20,7 +20,7 @@ def menu():
     print("4. Leave\n")
     user_input = input("Enter the number for what you would like to do. \n > ")
     if user_input.isdigit():
-        user_input = int(input(user_input))
+        user_input = int(user_input)
         if user_input == 1:
             make_pizza()
         elif user_input == 2:
@@ -68,18 +68,39 @@ def make_pizza():
             print(str(counter_2) + ". " + str(crust[0]) + " $" + str(crust[1]))
         pizza_crust_input = int(input("Enter the number next to the pizza crust for your choice: "))
         if pizza_crust_input == 1:
-            user_order.append(pizza_base[0])
+            user_order.append(pizza_crust[0])
         elif pizza_crust_input == 2:
-            user_order.append(pizza_base[1])
+            user_order.append(pizza_crust[1])
         elif pizza_crust_input == 3:
-            user_order.append(pizza_base[2])
+            user_order.append(pizza_crust[2])
         elif pizza_crust_input == 4:
-            user_order.append(pizza_base[3])
+            user_order.append(pizza_crust[3])
         else:
             print("Enter a valid input")
             time.sleep(1)
             pizza_crust_choice()
+    def pizza_cheese_choice():
+        os.system("clear")
+        print("What type of pizza cheese would you like")
+        counter_2 = 0
+        for cheese in pizza_cheese:
+            counter_2 = counter_2 + 1
+            print(str(counter_2) + ". " + str(cheese[0]) + " $" + str(cheese[1]))
+        pizza_cheese_input = int(input("Enter the number next to the pizza cheese for your choice: "))
+        if pizza_cheese_input == 1:
+            user_order.append(pizza_cheese[0])
+        elif pizza_cheese_input == 2:
+            user_order.append(pizza_cheese[1])
+        elif pizza_cheese_input == 3:
+            user_order.append(pizza_cheese[2])
+        elif pizza_cheese_input == 4:
+            user_order.append(pizza_cheese[3])
+        else:
+            print("Enter a valid input")
+            time.sleep(1)
+            pizza_cheese_choice()
     pizza_crust_choice()
+    pizza_cheese_choice()
 
 
 def side_choice():
@@ -165,5 +186,4 @@ def leave():
         time.sleep(1)
         leave()
     
-
 menu()
