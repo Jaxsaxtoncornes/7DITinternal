@@ -40,25 +40,26 @@ def menu():
 
 
 def make_pizza():
-    os.system("clear")
-    print("What type of pizza base would you like")
-    counter_1 = 0
-    for base in pizza_base:
-        counter_1 = counter_1 + 1
-        print(str(counter_1) + ". " + str(base[0]) + " $" + str(base[1]))
-    pizza_base_input = int(input("Enter the number next to the pizza base for your choice: "))
-    if pizza_base_input == 1:
-        user_order.append(pizza_base[0])
-    elif pizza_base_input == 2:
-        user_order.append(pizza_base[1])
-    elif pizza_base_input == 3:
-        user_order.append(pizza_base[2])
-    elif pizza_base_input == 4:
-        user_order.append(pizza_base[3])
-    else:
-        print("Enter a valid input")
-        time.sleep(1)
-        make_pizza()
+    def pizza_base_choice():
+        os.system("clear")
+        print("What type of pizza base would you like")
+        counter_1 = 0
+        for base in pizza_base:
+            counter_1 = counter_1 + 1
+            print(str(counter_1) + ". " + str(base[0]) + " $" + str(base[1]))
+        pizza_base_input = int(input("Enter the number next to the pizza base for your choice: "))
+        if pizza_base_input == 1:
+            user_order.append(pizza_base[0])
+        elif pizza_base_input == 2:
+            user_order.append(pizza_base[1])
+        elif pizza_base_input == 3:
+            user_order.append(pizza_base[2])
+        elif pizza_base_input == 4:
+            user_order.append(pizza_base[3])
+        else:
+            print("Enter a valid input")
+            time.sleep(1)
+            pizza_base_choice()
     def pizza_crust_choice():
         os.system("clear")
         print("What type of pizza crust would you like")
@@ -82,10 +83,10 @@ def make_pizza():
     def pizza_cheese_choice():
         os.system("clear")
         print("What type of pizza cheese would you like")
-        counter_2 = 0
+        counter_3 = 0
         for cheese in pizza_cheese:
-            counter_2 = counter_2 + 1
-            print(str(counter_2) + ". " + str(cheese[0]) + " $" + str(cheese[1]))
+            counter_3 = counter_3 + 1
+            print(str(counter_3) + ". " + str(cheese[0]) + " $" + str(cheese[1]))
         pizza_cheese_input = int(input("Enter the number next to the pizza cheese for your choice: "))
         if pizza_cheese_input == 1:
             user_order.append(pizza_cheese[0])
@@ -99,8 +100,62 @@ def make_pizza():
             print("Enter a valid input")
             time.sleep(1)
             pizza_cheese_choice()
+    def pizza_toppings_choice():
+        os.system("clear")
+        user_toppings_confirm = input("Say yes or no if you would like toppings on your pizza?").lower
+        if user_toppings_confirm == "yes":
+            def yes_toppings():
+                os.system("clear")
+                print("what toppings would you like on your pizza?")
+                counter_4 = 0
+                for toppings in pizza_toppings:
+                    counter_4 = counter_4 + 1
+                    print(str(counter_4) + ". " + str(toppings[0]) + " $" + str(toppings[1]))
+                pizza_toppings_input = int(input("Enter the number next to the toppings for your choice"))
+                if pizza_toppings_input == 1:
+                    user_order.append(pizza_toppings[0])
+                elif pizza_toppings_input == 2:
+                    user_order.append(pizza_toppings[1])
+                elif pizza_toppings_input == 3:
+                    user_order.append(pizza_toppings[2])
+                elif pizza_toppings_input == 4:
+                    user_order.append(pizza_toppings[3])
+                elif pizza_toppings_input == 5:
+                    user_order.append(pizza_toppings[4])
+                elif pizza_toppings_input == 6:
+                    user_order.append(pizza_toppings[5])
+                elif pizza_toppings_input == 7:
+                    user_order.append(pizza_toppings[6])
+                elif pizza_toppings_input == 8:
+                    user_order.append(pizza_toppings[7])
+                else:
+                    print("Please enter a valid input")
+                    time.sleep(1)
+                    yes_toppings()
+            def more_toppings():
+                more_toppings_input = input("Say yes or no if you want anymore toppings!")
+                if more_toppings_input == "yes":
+                    yes_toppings()
+                elif more_toppings_input == "no":
+                    print("Alright, back to the menu!")
+                    time.sleep(1)
+                    menu()
+                else:
+                    print("Please enter a valid input")
+                    time.sleep(1)
+                    more_toppings()
+        elif user_toppings_confirm == "no":
+            print("Alright, back to the menu!")
+            time.sleep(1)
+            menu()
+        else:
+            print("Please enter a valid input")
+            time.sleep(1)
+            pizza_toppings_choice()
+    pizza_base_choice()
     pizza_crust_choice()
     pizza_cheese_choice()
+    pizza_toppings_choice()
 
 
 def side_choice():
