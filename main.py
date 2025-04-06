@@ -1,5 +1,5 @@
 import os     #imported os for the os.system("clear")
-import time   #imported time to allow user's to read dialogue before it disapears
+import time   #imported time to allow user's to read dialogue before it disappears
 
 
 pizza_base = [["Thin Base", 5],["Plain Base", 6], ["Gluten Free Base", 6.5], ["Italian Herb Base", 7]]
@@ -8,6 +8,7 @@ pizza_cheese = [["Mozzarella", 0.5],["Chedder", 0.5],["4 Cheese's", 1],["Vegan C
 pizza_toppings = [["Basil", 0.5],["Garlic", 0.75],["Onions", 1],["Tomatoes", 1.25],["Mushrooms", 1.5],["Green Peppers", 1.75],["Ham", 2],["Pepperoni", 2.5]]
 pizza_sides = [["Coca Cola", 2],["Sprite", 2],["Fanta", 2],["Fries", 3],["Onion Rings", 3.5],["Garlic Bread", 4]]
 user_order = []
+user_order_sides = []
 
 
 def menu():
@@ -28,7 +29,40 @@ def make_pizza():
         print(str(counter_1) + ". " + str(base[0]) + " $" + str(base[1]))
     pizza_base_input = int(input("Enter the number next to the pizza base for your choice: "))
     if pizza_base_input == 1:
-        user_order.append()
+        user_order.append(pizza_base[0])
+    elif pizza_base_input == 2:
+        user_order.append(pizza_base[1])
+    elif pizza_base_input == 3:
+        user_order.append(pizza_base[2])
+    elif pizza_base_input == 4:
+        user_order.append(pizza_base[3])
+    else:
+        print("Enter a valid input")
+        time.sleep(1)
+        make_pizza()
+    def pizza_crust_choice():
+        os.system("clear")
+        print("What type of pizza crust would you like")
+        counter_2 = 0
+        for crust in pizza_crust:
+            counter_2 = counter_2 + 1
+            print(str(counter_2) + ". " + str(crust[0]) + " $" + str(crust[1]))
+        pizza_crust_input = int(input("Enter the number next to the pizza crust for your choice: "))
+        if pizza_crust_input == 1:
+            user_order.append(pizza_base[0])
+        elif pizza_crust_input == 2:
+            user_order.append(pizza_base[1])
+        elif pizza_crust_input == 3:
+            user_order.append(pizza_base[2])
+        elif pizza_crust_input == 4:
+            user_order.append(pizza_base[3])
+        else:
+            print("Enter a valid input")
+            time.sleep(1)
+            pizza_crust_choice()
+    pizza_crust_choice()
+
+    
 
     
 def purchase_sides():
@@ -46,22 +80,41 @@ def side_choice():
     for sides in pizza_sides:
         counter_5 = counter_5 + 1
         print(str(counter_5) + ". " + str(sides[0]) + " $" + str(sides[1]))
-    sides_choice = int(input("Enter the number next to the side you want to purchase"))
-    if sides_choice == 1:
-        pizza_sides.append()
-
+    if sides_choice.isdigit():
+        sides_choice = int(side_choice)
+        if sides_choice == 1:
+            user_order_sides.append(side_choice[0])
+        elif sides_choice == 2:
+            user_order_sides.append(side_choice[1])
+        elif sides_choice == 3:
+            user_order_sides.append(side_choice[2])
+        elif sides_choice == 4:
+            user_order_sides.append(side_choice[3])
+        elif sides_choice == 5:
+            user_order_sides.append(side_choice[4])
+        elif sides_choice == 6:
+            user_order_sides.append(side_choice[5])
+        else:
+            print("Enter a number between 1-6")
+            time.sleep(1)
+            side_choice()
+    else:
+        print("Enter a valid input")
+        time.sleep(1)
+        side_choice()
 
 def side_confirm():
-    side_confirm = input("Enter yes or no if you want to buy a side: ").lower()
-    if side_confirm == "yes":
+    user_side_confirm = input("Enter yes or no if you want to buy a side: ").lower()
+    if user_side_confirm == "yes":
         side_choice()
-    elif side_confirm == "no":
+    elif user_side_confirm == "no":
         print("Alright, back to the menu!")
         time.sleep(1)
         menu()
     else:
         print("Enter a valid input")
-        time.sleep
+        time.sleep(1)
+        os.system("clear")
         side_confirm()
 
 
@@ -95,9 +148,10 @@ def leave():
     
 
 while True:
-    try:
-        menu()
-        user_input = int(input("Enter the number for what you would like to do. \n > "))
+    menu()
+    user_input = input("Enter the number for what you would like to do. \n > ")
+    if user_input.isdigit():
+        user_input = int(user_input)
         if user_input == 1:
             make_pizza()
         elif user_input == 2:
@@ -109,6 +163,6 @@ while True:
         else:
             print("enter a number between 1 to 4")
             time.sleep(1)
-    except ValueError:
-        print("Please enter a valid number.") 
+    else:
+        print("Enter a valid input")
         time.sleep(1)
