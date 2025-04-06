@@ -171,35 +171,32 @@ def pizza_toppings_choice():
 
 
 def pizza_side_choice():
-    os.system("clear")
-    counter_5 = 0
-    for sides in pizza_sides:
-        counter_5 = counter_5 + 1
-        print(str(counter_5) + ". " + str(sides[0]) + " $" + str(sides[1]))
-    user_sides_choice = input("What side would you like to purchase: ")
-    if user_sides_choice.isdigit():
-        user_sides_choice = int(user_sides_choice)
-        if user_sides_choice == 1:
+    while True:
+        os.system("clear")
+        counter_5 = 0
+        for sides in pizza_sides:
+            counter_5 = counter_5 + 1
+            print(str(counter_5) + ". " + str(sides[0]) + " $" + str(sides[1]))
+        user_sides_choice = input("Enter 'exit' to go back to the menu\nEnter the number next to the side would you like to purchase: ").lower()
+        if user_sides_choice == "1":
             user_sides.append(pizza_sides[0])
-        elif user_sides_choice == 2:
+        elif user_sides_choice == "2":
             user_sides.append(pizza_sides[1])
-        elif user_sides_choice == 3:
+        elif user_sides_choice == "3":
             user_sides.append(pizza_sides[2])
-        elif user_sides_choice == 4:
+        elif user_sides_choice == "4":
             user_sides.append(pizza_sides[3])
-        elif user_sides_choice == 5:
+        elif user_sides_choice == "5":
             user_sides.append(pizza_sides[4])
-        elif user_sides_choice == 6:
+        elif user_sides_choice == "6":
             user_sides.append(pizza_sides[5])
+        elif user_sides_choice == "exit":
+            menu()
+            break
         else:
-            print("Enter a number between 1-6")
+            print("Please enter a valid input")
             time.sleep(1)
             pizza_side_choice()
-        menu()
-    else:
-        print("Enter a valid input")
-        time.sleep(1)
-        pizza_side_choice()
 
 
 def side_confirm():
@@ -262,6 +259,8 @@ def edit_cart():
         print("Please enter a valid input")
         time.sleep(1)
         edit_cart()
+
+
 def pizza_checkout():
     os.system("clear")
     pizza_total_cost = 0
@@ -335,7 +334,7 @@ def leave():
     os.system("clear")
     leave_call = input("Enter yes or no if you want to end your order: ").lower()
     if leave_call == "yes":
-        print("have a good day!")
+        print("Have a good day!")
     elif leave_call == "no":
         print("Alright, back to the menu!")
     else:
