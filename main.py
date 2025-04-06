@@ -223,15 +223,24 @@ def side_confirm():
 
 def cart():
     os.system("clear")
-    print("1. Checkout\n2. Edit cart\n3. Go back to the menu\n")
+    print("1. Checkout \n2. View cart \n3. Edit cart \n4. Go back to the menu \n")
     user_cart_choice = input("Enter the number next to what you would like to do: ")
     if user_cart_choice.isdigit():
         user_cart_choice = int(user_cart_choice)
         if user_cart_choice == 1:
             print("")
         elif user_cart_choice == 2:
-            print("")
+            print("Pizza: ")
+            for order in user_order:
+                print(str(order[0]) + " $" + str(order[1]))
+            print("Sides: ")
+            for sides in user_sides:
+                print(str(sides[0]) + " $" + str(sides[1]))
+            input("Enter to go back to the cart")
+            cart()
         elif user_cart_choice == 3:
+            edit_cart()
+        elif user_cart_choice == 4:
             ("Alright, back to the menu")
             time.sleep(1)
             menu()
@@ -243,6 +252,15 @@ def cart():
         print("Please enter a valid input")
         time.sleep(1)
         cart()
+    def edit_cart():
+        os.system("clear")
+        print("What part of your pizza would you like to edit?")
+        print("1. Pizza base")
+        print("2. Pizza crust")
+        print("3. Pizza cheese")
+        print("4. Pizza toppings")
+        print("5. Pizza sides")
+        print("6. Back to cart")
 
 
 def leave():
