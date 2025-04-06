@@ -232,22 +232,27 @@ def edit_cart():
         if edit_cart_choice == 1:
             user_order[0] = []
             pizza_base_choice()
+            os.system("clear")
             edit_cart()
         elif edit_cart_choice == 2:
             user_order[1] = []
             pizza_crust_choice()
+            os.system("clear")
             edit_cart()
         elif edit_cart_choice == 3:
             user_order[2] = []
             pizza_cheese_choice()
+            os.system("clear")
             edit_cart()
         elif edit_cart_choice == 4:
             user_order[3:] = []
             pizza_toppings_choice()
+            os.system("clear")
             edit_cart()
         elif edit_cart_choice == 5:
             user_sides[0:] = []
             pizza_side_choice()
+            os.system("clear")
             edit_cart()
         elif edit_cart_choice == 6:
             cart()
