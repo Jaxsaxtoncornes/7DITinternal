@@ -167,31 +167,26 @@ def side_choice():
     for sides in pizza_sides:
         counter_5 = counter_5 + 1
         print(str(counter_5) + ". " + str(sides[0]) + " $" + str(sides[1]))
-    sides_choice = input("What side would you like to purchase: ")
-    if sides_choice.isdigit():
-        sides_choice = int(side_choice)
-        if sides_choice == 1:
-            user_sides.append(side_choice[0])
-            menu()
-        elif sides_choice == 2:
-            user_sides.append(side_choice[1])
-            menu()
-        elif sides_choice == 3:
-            user_sides.append(side_choice[2])
-            menu()
-        elif sides_choice == 4:
-            user_sides.append(side_choice[3])
-            menu()
-        elif sides_choice == 5:
-            user_sides.append(side_choice[4])
-            menu()
-        elif sides_choice == 6:
-            user_sides.append(side_choice[5])
-            menu()
+    user_sides_choice = input("What side would you like to purchase: ")
+    if user_sides_choice.isdigit():
+        user_sides_choice = int(user_sides_choice)
+        if user_sides_choice == 1:
+            user_sides.append(pizza_sides[0])
+        elif user_sides_choice == 2:
+            user_sides.append(pizza_sides[1])
+        elif user_sides_choice == 3:
+            user_sides.append(pizza_sides[2])
+        elif user_sides_choice == 4:
+            user_sides.append(pizza_sides[3])
+        elif user_sides_choice == 5:
+            user_sides.append(pizza_sides[4])
+        elif user_sides_choice == 6:
+            user_sides.append(pizza_sides[5])
         else:
             print("Enter a number between 1-6")
             time.sleep(1)
             side_choice()
+        menu()
     else:
         print("Enter a valid input")
         time.sleep(1)
@@ -219,6 +214,7 @@ def side_confirm():
 def cart():
     os.system("clear")
     print(user_order)
+    print(user_sides)
     user_input = input("Enter yes or no if you would like to check out: ").lower()
     if user_input == "yes":
         input("What size pizza would you like?")
