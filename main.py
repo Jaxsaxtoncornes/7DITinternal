@@ -1,6 +1,6 @@
 import os     #imported os for the os.system("clear")
 import time   #imported time to allow user's to read dialogue before it disappears
-import sys
+import sys    #imported sys to terminate the program at the end
 
 
 pizza_base = [["Thin Base", 5],["Plain Base", 6], ["Gluten Free Base", 6.5], ["Italian Herb Base", 7]]
