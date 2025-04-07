@@ -213,7 +213,7 @@ def side_confirm():  #This is for if the user wants sides or not, if they do wan
     for sides in pizza_sides:
         counter_5 = counter_5 + 1
         print(str(counter_5) + ". " + str(sides[0]) + " $" + str(sides[1]))
-    user_side_confirm = input("Looking at the available sides, enter yes or no if you want to buy a side: ").lower()
+    user_side_confirm = input("\nLooking at the available sides, enter yes or no if you want to buy a side: ").lower()
     if user_side_confirm == "yes":
         pizza_side_choice()
     elif user_side_confirm == "no":
@@ -279,6 +279,24 @@ def edit_cart():
         edit_cart()
 
 
+def final_choice():
+    final_pizza_choice = input("1. Delivered \n2. Pick up food\nWould you like your food to be delivered or do you want to pick up your food?")
+    if final_pizza_choice.isdigit():
+        final_pizza_choice = int(final_pizza_choice)
+        if final_pizza_choice == 1:
+            print("Your food will be delivered to you shortly, thanks for ordering from Queenstowns Pizzaria!")
+        elif final_pizza_choice == 2:
+            print("Your food will be ready to be picked up in 15 minutes, thanks for ordering from Queenstowns Pizzaria!")
+        else:
+            print("Please enter a valid number")
+            time.sleep(1)
+            final_choice()
+    else:
+        print("Please enter a valid input")
+        time.sleep(1)
+        final_choice()
+
+
 def pizza_checkout():  #This is the final part of the code, the checkout 
     os.system("clear")
     pizza_total_cost = 0  #This is where all of the costs of the pizza get stored
@@ -313,8 +331,8 @@ def pizza_checkout():  #This is the final part of the code, the checkout
     os.system("clear")
     print("Your final pizza cost is $" + str(final_pizza_cost))  #Dislays the final cost of the pizza alone
     print("Your final pizza cost along with sides is $" + str(final_cost))  #Displays the final cost along with the sides
-    input("Enter to complete your order")
-    sys.exit()
+    input("enter to continue")
+    final_choice()
 
 
 def cart():  #Like the menu but for the cart
