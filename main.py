@@ -231,6 +231,7 @@ def edit_cart():
         print("Please order a pizza before editing cart")
         time.sleep(1.5)        
         cart()  #If nothing is in the cart to be edited they go back to the cart menu
+    os.system("clear")
     print("What part of your pizza would you like to edit?")
     print("1. Pizza base")
     print("2. Pizza crust")
