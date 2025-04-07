@@ -4,8 +4,8 @@ import sys    #imported sys to terminate the program at the end
 
 #These are all of the user's options for the pizza base, crust, cheese, toppings, and sides
 pizza_base = [["Thin Base", 5],["Plain Base", 6], ["Gluten Free Base", 6.5], ["Italian Herb Base", 7]]
-pizza_crust = [["Plain Crust", 0],["Tomato Crust", 1],["Cheesey Crust", 1],["Vegan Cheesey Crust", 1.5]]
-pizza_cheese = [["Mozzarella", 0.5],["Chedder", 0.5],["4 Cheese's", 1],["Vegan Cheese", 1]]
+pizza_crust = [["Plain Crust", 0],["Tomato Crust", 1],["Cheesy Crust", 1],["Vegan Cheesy Crust", 1.5]]
+pizza_cheese = [["Mozzarella", 0.5],["Cheddar", 0.5],["4 Cheeses", 1],["Vegan Cheese", 1]]
 pizza_toppings = [["Basil", 0.5],["Garlic", 0.75],["Onions", 1],["Tomatoes", 1.25],["Mushrooms", 1.5],["Green Peppers", 1.75],["Ham", 2],["Pepperoni", 2.5]]
 pizza_sides = [["Coca Cola", 2],["Sprite", 2],["Fanta", 2],["Fries", 3],["Onion Rings", 3.5],["Garlic Bread", 4]]
 user_order = []  #Stores the user's pizza choices
@@ -20,7 +20,7 @@ def menu(): #Displays the options that the user can do
     print("3. Cart")
     print("4. Leave\n")
     user_input = input("Enter the number for what you would like to do. \n > ")
-    if user_input.isdigit(): #The .isdigit() reckonises when the input is a number and runs the code
+    if user_input.isdigit(): #The .isdigit() recognises when the input is a number and runs the code
         user_input = int(user_input)
         if user_input == 1:
             make_pizza()
@@ -213,7 +213,7 @@ def side_confirm(): #This is for if the user wants sides or not, if they do want
     for sides in pizza_sides:
         counter_5 = counter_5 + 1
         print(str(counter_5) + ". " + str(sides[0]) + " $" + str(sides[1]))
-    user_side_confirm = input("Looking at the availble sides, enter yes or no if you want to buy a side: ").lower()
+    user_side_confirm = input("Looking at the available sides, enter yes or no if you want to buy a side: ").lower()
     if user_side_confirm == "yes":
         pizza_side_choice()
     elif user_side_confirm == "no":
