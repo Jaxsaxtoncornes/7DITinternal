@@ -286,8 +286,10 @@ def final_choice():
         final_pizza_choice = int(final_pizza_choice)
         if final_pizza_choice == 1:
             print("Your food will be delivered to you shortly, thanks for ordering from Queenstowns Pizzaria!")
+            sys.exit()
         elif final_pizza_choice == 2:
             print("Your food will be ready to be picked up in 15 minutes, thanks for ordering from Queenstowns Pizzaria!")
+            sys.exit()
         else:
             print("Please enter a valid number")
             time.sleep(1)
