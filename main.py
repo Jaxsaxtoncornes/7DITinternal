@@ -280,6 +280,7 @@ def edit_cart():
 
 
 def final_choice():
+    os.system("clear")
     final_pizza_choice = input("1. Delivered \n2. Pick up food\nWould you like your food to be delivered or do you want to pick up your food?")
     if final_pizza_choice.isdigit():
         final_pizza_choice = int(final_pizza_choice)
@@ -331,7 +332,7 @@ def pizza_checkout():  #This is the final part of the code, the checkout
     os.system("clear")
     print("Your final pizza cost is $" + str(final_pizza_cost))  #Dislays the final cost of the pizza alone
     print("Your final pizza cost along with sides is $" + str(final_cost))  #Displays the final cost along with the sides
-    input("enter to continue")
+    input("Enter to continue to delivery options")
     final_choice()
 
 
